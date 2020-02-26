@@ -15,7 +15,7 @@ killTomcat()
 cd $PROJ_PATH/jenkinsdemo
 mvn clean install
 
-killtomcat
+killTomcat
 
 rm -rf $TOMCAT_APP_PATH/webapps/jenkinsdemo
 rm -f $TOMCAT_APP_PATH/webapps/jenkinsdemo.war
