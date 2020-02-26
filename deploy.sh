@@ -13,7 +13,7 @@ killTomcat()
 }
 
 cd $PROJ_PATH/jenkinsdemo
-mvn clean install
+mvn clean package -Dmaven.test.skip=true
 
 killTomcat
 
