@@ -8,6 +8,7 @@ killTomcat()
     then
         echo "no tomcat pid alive"
     else
+        echo "tomcat running at :$pid"
         kill -9 $pid
     fi
 }
@@ -15,9 +16,9 @@ killTomcat()
 cd $PROJ_PATH/jenkinsdemo
 mvn clean package -Dmaven.test.skip=true
 
-# killTomcat
-cd $TOMCAT_APP_PATH/
-sh bin/shutdown.sh
+killTomcat
+# cd $TOMCAT_APP_PATH/
+# sh bin/shutdown.sh
 
 rm -rf $TOMCAT_APP_PATH/webapps/jenkinsdemo
 rm -f $TOMCAT_APP_PATH/webapps/jenkinsdemo.war
