@@ -12,7 +12,7 @@ killTomcat()
     fi
 }
 
-killTomcat
+# killTomcat
 
 cd $PROJ_PATH/jenkinsdemo
 mvn clean package -Dmaven.test.skip=true
@@ -29,5 +29,5 @@ cp $PROJ_PATH/jenkinsdemo/target/jenkinsdemo-0.0.1-SNAPSHOT.war $TOMCAT_APP_PATH
 cd $TOMCAT_APP_PATH/webapps/
 mv jenkinsdemo-0.0.1-SNAPSHOT.war jenkinsdemo.war
 
-cd $TOMCAT_APP_PATH/
-sh bin/startup.sh
+# cd $TOMCAT_APP_PATH/
+# sh bin/startup.sh
