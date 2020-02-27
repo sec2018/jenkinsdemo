@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
 
+export BUILD_ID=dontkillme
+
 killTomcat()
 {
     pid=`ps -ef|grep tomcat|grep java|awk '{print $2}'`
     echo "tomcat Id list :$pid"
-    if [ $pid -eq "" ]
+    if [ -n "$pid" ]
     then
-        echo "no tomcat pid alive"
-    else
         kill -9 $pid
     fi
 }
 
-pid=`ps -ef|grep tomcat|grep java|awk '{print $2}'`
-echo "tomcat Id list :$pid"
+# pid=`ps -ef|grep tomcat|grep java|awk '{print $2}'`
+# echo "tomcat Id list :$pid"
 # killTomcat
 
 cd $PROJ_PATH/jenkinsdemo
 mvn clean package -Dmaven.test.skip=true
 
-# killTomcat
+killTomcat
 # cd $TOMCAT_APP_PATH/
 # sh bin/shutdown.sh
 
