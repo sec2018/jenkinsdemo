@@ -4,7 +4,7 @@ killTomcat()
 {
     pid=`ps -ef|grep tomcat|grep java|awk '{print $2}'`
     echo "tomcat Id list :$pid"
-    if [ "$pid" = "" ]
+    if [ "$pid" -eq "" ]
     then
         echo "no tomcat pid alive"
     else
@@ -12,20 +12,14 @@ killTomcat()
     fi
 }
 
-pid=`ps -ef|grep tomcat|grep java|awk '{print $2}'`
-echo "tomcat Id list :$pid"
-if ["$pid" -eq "" ]
-then
-    echo "no tomcat pid alive"
-else
-    kill -9 $pid
-fi
+# pid=`ps -ef|grep tomcat|grep java|awk '{print $2}'`
+# echo "tomcat Id list :$pid"
 # killTomcat
 
 cd $PROJ_PATH/jenkinsdemo
 mvn clean package -Dmaven.test.skip=true
 
-# killTomcat
+killTomcat
 # cd $TOMCAT_APP_PATH/
 # sh bin/shutdown.sh
 
