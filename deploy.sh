@@ -12,14 +12,14 @@ killTomcat()
     fi
 }
 
-# pid=`ps -ef|grep tomcat|grep java|awk '{print $2}'`
-# echo "tomcat Id list :$pid"
+pid=`ps -ef|grep tomcat|grep java|awk '{print $2}'`
+echo "tomcat Id list :$pid"
 # killTomcat
 
 cd $PROJ_PATH/jenkinsdemo
 mvn clean package -Dmaven.test.skip=true
 
-killTomcat
+# killTomcat
 # cd $TOMCAT_APP_PATH/
 # sh bin/shutdown.sh
 
