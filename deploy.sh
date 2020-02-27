@@ -18,11 +18,13 @@ killTomcat()
 # echo "tomcat Id list :$pid"
 # killTomcat
 
-cd $PROJ_PATH/jenkinsdemo
+cd $PROJ_PATH
+chmod a+x -R *
+cd jenkinsdemo
 mvn clean package -Dmaven.test.skip=true
 
 killTomcat
-sleep(3)
+sleep 3
 
 rm -rf $TOMCAT_APP_PATH/webapps/jenkinsdemo
 rm -f $TOMCAT_APP_PATH/webapps/jenkinsdemo.war
